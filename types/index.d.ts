@@ -30,6 +30,8 @@ export interface MaterialTableProps {
   onTreeExpandChange?: (data: any, isExpanded: boolean) => void;
   style?: React.CSSProperties;
   tableRef?: any;
+  page?: number;
+  totalCount?: number;
 }
 
 export interface Filter {
