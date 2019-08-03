@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { Table, TableFooter, TableRow, LinearProgress } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
+import TableFooter from '@material-ui/core/TableFooter';
+import TableRow from '@material-ui/core/TableRow';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import DoubleScrollbar from "react-double-scrollbar";
 import * as React from 'react';
 import { MTablePagination, MTableSteppedPagination } from './components';
@@ -72,7 +75,7 @@ export default class MaterialTable extends React.Component {
 
     isInit && this.dataManager.changeOrder(defaultSortColumnIndex, defaultSortDirection);
     isInit && this.dataManager.changeCurrentPage(props.options.initialPage ? props.options.initialPage : 0);
-    isInit && this.dataManager.changePageSize(props.options.pageSize);
+    this.dataManager.changePageSize(props.options.pageSize);
     isInit && this.dataManager.changePaging(props.options.paging);
     isInit && this.dataManager.changeParentFunc(props.parentChildData);
     this.dataManager.changeDetailPanelType(props.options.detailPanelType);
@@ -376,8 +379,9 @@ export default class MaterialTable extends React.Component {
       this.onQueryChange(query);
     }
     else {
-      this.setState(this.dataManager.getRenderState());
-      this.props.onSearchChange && this.props.onSearchChange(this.state.searchText);
+      this.setState(this.dataManager.getRenderState(), () => {
+        this.props.onSearchChange && this.props.onSearchChange(this.state.searchText);
+      });
     }
   }, this.props.options.debounceInterval)
 

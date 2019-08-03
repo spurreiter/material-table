@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Icon, IconButton, Tooltip } from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 /* eslint-enable no-unused-vars */
 
 class MTableAction extends React.Component {
@@ -34,7 +36,7 @@ class MTableAction extends React.Component {
           onClick={(event) => handleOnClick(event)}
         >
           {typeof action.icon === "string" ? (
-            <Icon {...action.iconProps} fontSize="small">{action.icon}</Icon>
+            <Icon {...action.iconProps}>{action.icon}</Icon>
           ) : (
               <action.icon
                 {...action.iconProps}

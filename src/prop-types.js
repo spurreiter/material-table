@@ -157,6 +157,7 @@ export const propTypes = {
     body: PropTypes.object
   }),
   initialFormData: PropTypes.object,
+  onSearchChange: PropTypes.func,
   onSelectionChange: PropTypes.func,
   onChangeRowsPerPage: PropTypes.func,
   onChangePage: PropTypes.func,
@@ -164,5 +165,7 @@ export const propTypes = {
   onRowClick: PropTypes.func,
   onTreeExpandChange: PropTypes.func,
   tableRef: PropTypes.any,
-  style: PropTypes.object
+  style: PropTypes.object,
+  page: PropTypes.number,
+  totalCount: PropTypes.number
 };

@@ -1,5 +1,8 @@
 import React from 'react';
-import { CircularProgress, Icon, Paper, TablePagination } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Icon from '@material-ui/core/Icon';
+import Paper from '@material-ui/core/Paper';
+import TablePagination from '@material-ui/core/TablePagination';
 import * as MComponents from './components';
 import PropTypes from 'prop-types';
 import { fade } from '@material-ui/core/styles/colorManipulator';
@@ -114,7 +117,7 @@ export const defaultProps = {
       editRow: {
         saveTooltip: 'Save',
         cancelTooltip: 'Cancel',
-        deleteText: 'Are you sure delete this row?',
+        deleteText: 'Are you sure you want to delete this row?',
       },
       addTooltip: 'Add',
       deleteTooltip: 'Delete',

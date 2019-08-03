@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { TableCell, TableRow, IconButton } from '@material-ui/core';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+import IconButton from '@material-ui/core/IconButton';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 /* eslint-enable no-unused-vars */
@@ -83,6 +85,11 @@ export default class MTableGroupRow extends React.Component {
       value = column.lookup[value];
     }
 
+    let title = column.title;
+    if (typeof title !== "string") {
+      title = React.cloneElement(title);
+    }
+
     return (
       <>
         <TableRow>
@@ -102,7 +109,7 @@ export default class MTableGroupRow extends React.Component {
             >
               <this.props.icons.DetailPanel />
             </IconButton>
-            <b>{column.title + ": "}</b>
+            <b>{title}{": "}</b>
           </this.props.components.Cell>
         </TableRow>
         {detail}
